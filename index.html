@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spam Email Detection Using Propositional Logic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Spam Email Detection Using Propositional Logic</h1>
+    <p class="hero-desc">This application demonstrates how propositional logic can be applied to classify emails based on predefined spam conditions.</p>
+
+    <a href="#detection" class="btn btn-primary">Start Detection</a>
+  </div>
+  <div class="hero-glow" aria-hidden="true"></div>
+</section>
+
+<main>
+
+<!-- ================= FORMULA ================= -->
+<section class="section" id="formula">
+  <div class="section-inner">
+    <h2 class="section-title">Logical Formula</h2>
+
+    <div class="formula-display card">
+      <div class="big-formula">
+        <span class="f-token f-s">S</span> <span class="f-op">&harr;</span> (<span class="f-token">U</span> <span class="f-op">&or;</span> <span class="f-token">L</span> <span class="f-op">&or;</span> <span class="f-token">M</span> <span class="f-op">&or;</span> <span class="f-token">P</span>)
+      </div>
+      <p class="formula-explain">The email is Spam if and only if at least one of the four conditions is TRUE.</p>
+
+      <div class="legend-row">
+        <div class="legend-item"><span class="legend-op">&or;</span> OR &mdash; true when at least one operand is true</div>
+        <div class="legend-item"><span class="legend-op">&harr;</span> Biconditional &mdash; true when both sides match</div>
+      </div>
+
+      <div class="code-block">
+        <span class="term-comment">// Programming equivalent</span><br>
+        const isSpam = U || L || M || P;
+      </div>
+      <br>
+      <p class="section-sub">Five Boolean propositions form the basis of this model.</p>
+      <div class="table-wrap card">
+      <table class="data-table">
+        <thead>
+          <tr><th>Symbol</th><th>Proposition</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="sym">S</td><td>Email is Spam</td><td>Final spam result</td></tr>
+          <tr><td class="sym">U</td><td>Unknown Sender</td><td>TRUE if sender is unknown</td></tr>
+          <tr><td class="sym">L</td><td>Suspicious Links</td><td>TRUE if suspicious links exist</td></tr>
+          <tr><td class="sym">M</td><td>Malware Attachment</td><td>TRUE if malware attachment exists</td></tr>
+          <tr><td class="sym">P</td><td>Promotional Keywords</td><td>TRUE if excessive promotional keywords exist</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= DETECTION SECTION ================= -->
+<section class="section" id="detection">
+  <div class="section-inner">
+    <h2 class="section-title">Analyze Email</h2>
+    <div class="analyze-card card">
+      <div class="analyze-header">
+        <div class="analyze-header-icon">&#9993;</div>
+        <div>
+          <h3>Email Details</h3>
+        </div>
+      </div>
+
+      <p class="preset-label"><span class="spark">&#10022;</span> Try a preset</p>
+      <div class="preset-row">
+        <button class="preset preset-danger" data-preset="lottery">&#9888; Lottery Prize</button>
+        <button class="preset preset-danger" data-preset="invoice">&#9888; Fake Invoice</button>
+        <button class="preset preset-safe" data-preset="promo">&#10003; Promo Newsletter</button>
+        <button class="preset preset-safe" data-preset="colleague">&#10003; Colleague Email</button>
+      </div>
+
+      <hr class="divider">
+
+      <div class="field">
+        <label for="senderEmail">Sender Email</label>
+        <input type="text" id="senderEmail" placeholder="e.g. unknown-promo@random-domain.xyz">
+      </div>
+      <div class="field">
+        <label for="emailSubject">Email Subject</label>
+        <input type="text" id="emailSubject" placeholder="e.g. You have won a FREE iPhone — claim now!!!">
+      </div>
+      <div class="field">
+        <label for="emailContent">Email Content</label>
+        <textarea id="emailContent" rows="4" placeholder="e.g. Click here to claim your reward. Limited time offer!"></textarea>
+      </div>
+
+      <div class="analyze-actions">
+        <button class="btn btn-dark" id="analyzeBtn">&#9889; Analyze Email</button>
+        <button class="btn btn-outline" id="resetBtn">&#8635; Reset</button>
+        <span class="conditions-count" id="conditionsCount">0 / 4 conditions active</span>
+      </div>
+    </div>
+
+    <h3 class="subsection-title">The Four Conditions</h3>
+    <p class="section-sub">Toggle each condition to build the Boolean inputs for the formula.</p>
+
+    <div class="condition-grid">
+
+      <div class="cond-card" data-cond="U">
+        <div class="cond-top">
+          <span class="cond-symbol">U</span>
+          <label class="switch">
+            <input type="checkbox" id="cond-U">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <h4>Unknown Sender</h4>
+        <p>The sender is unknown or not trusted.</p>
+        <span class="cond-status" id="status-U">FALSE</span>
+      </div>
+
+      <div class="cond-card" data-cond="L">
+        <div class="cond-top">
+          <span class="cond-symbol">L</span>
+          <label class="switch">
+            <input type="checkbox" id="cond-L">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <h4>Suspicious Links</h4>
+        <p>The email contains suspicious or potentially unsafe links.</p>
+        <span class="cond-status" id="status-L">FALSE</span>
+      </div>
+
+      <div class="cond-card" data-cond="M">
+        <div class="cond-top">
+          <span class="cond-symbol">M</span>
+          <label class="switch">
+            <input type="checkbox" id="cond-M">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <h4>Malware Attachment</h4>
+        <p>The email contains a potentially harmful attachment.</p>
+        <span class="cond-status" id="status-M">FALSE</span>
+      </div>
+
+      <div class="cond-card" data-cond="P">
+        <div class="cond-top">
+          <span class="cond-symbol">P</span>
+          <label class="switch">
+            <input type="checkbox" id="cond-P">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <h4>Promotional Keywords</h4>
+        <p>The email contains too many promotional keywords.</p>
+        <span class="cond-status" id="status-P">FALSE</span>
+      </div>
+
+    </div>
+
+    <!-- LIVE LOGIC TERMINAL -->
+    <div class="logic-terminal">
+      <div class="terminal-bar">
+        <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+        <span class="terminal-title">live-logic-evaluator</span>
+      </div>
+      <div class="terminal-body">
+        <div class="term-line">
+          <span class="term-comment">// Boolean assignments</span>
+        </div>
+        <div class="term-line"><span class="term-var">U</span> = <span class="term-val" id="val-U">FALSE</span></div>
+        <div class="term-line"><span class="term-var">L</span> = <span class="term-val" id="val-L">FALSE</span></div>
+        <div class="term-line"><span class="term-var">M</span> = <span class="term-val" id="val-M">FALSE</span></div>
+        <div class="term-line"><span class="term-var">P</span> = <span class="term-val" id="val-P">FALSE</span></div>
+        <div class="term-line term-gap"><span class="term-comment">// Formula</span></div>
+        <div class="term-line">S &harr; (U &or; L &or; M &or; P)</div>
+        <div class="term-line term-gap"><span class="term-comment">// Evaluation</span></div>
+        <div class="term-line" id="term-eval">FALSE &or; FALSE &or; FALSE &or; FALSE</div>
+        <div class="term-line">= <span id="term-result">FALSE</span></div>
+        <div class="term-line term-gap">Therefore <span class="term-var">S</span> = <span id="term-final" class="term-val">FALSE</span></div>
+      </div>
+    </div>
+
+    <!-- RESULT CARD -->
+    <div class="result-card result-safe" id="resultCard">
+      <div class="result-icon" id="resultIcon">&#10003;</div>
+      <div class="result-text">
+        <h3 id="resultTitle">NOT SPAM</h3>
+        <p class="result-sub" id="resultFormula">S = FALSE</p>
+        <p class="result-explain" id="resultExplain">All four spam conditions are FALSE, therefore the email is not classified as spam under this logical model.</p>
+        <ul class="result-reasons" id="resultReasons"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= INFERENCE ================= -->
+<section class="section section-alt" id="inference">
+  <div class="section-inner">
+    <h2 class="section-title">Inference Rules</h2>
+    <p class="section-sub">Applying <strong>Modus Ponens</strong> to the spam formula.</p>
+
+    <div class="inference-grid">
+      <div class="card inference-card">
+        <h4>Modus Ponens &mdash; Structure</h4>
+        <div class="mp-line"><span class="mp-label">Premise 1</span> (U &or; L &or; M &or; P) &rarr; S</div>
+        <div class="mp-line"><span class="mp-label">Premise 2</span> (U &or; L &or; M &or; P)</div>
+        <div class="mp-line mp-conclusion"><span class="mp-label">Conclusion</span> S</div>
+      </div>
+
+      <div class="card inference-card spam-example">
+        <h4>Example &mdash; SPAM Case</h4>
+        <p class="mono-line">U = FALSE, L = FALSE, M = TRUE, P = FALSE</p>
+        <p class="mono-line">FALSE &or; FALSE &or; TRUE &or; FALSE = <strong>TRUE</strong></p>
+        <p class="mono-line">Therefore S = <strong>TRUE</strong></p>
+        <p class="mp-conclusion-text spam">The email is classified as SPAM.</p>
+      </div>
+
+      <div class="card inference-card safe-example">
+        <h4>Example &mdash; NOT SPAM Case</h4>
+        <p class="mono-line">U = FALSE, L = FALSE, M = FALSE, P = FALSE</p>
+        <p class="mono-line">FALSE &or; FALSE &or; FALSE &or; FALSE = <strong>FALSE</strong></p>
+        <p class="mono-line">Therefore S = <strong>FALSE</strong></p>
+        <p class="mp-conclusion-text safe">The email is classified as NOT SPAM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <p><b>PROJECT MADE BY</b></p>
+  <p><b>JASKIRAT SINGH KHOKHAR , REGISTRATION NUMBER - 26215019 , COURSE - 1BCA (A)</b></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
