@@ -102,6 +102,12 @@
       els.resultReasons.innerHTML = "";
     }
   }
+  function update() {
+    const values = getValues();
+    const isSpam = evaluateSpam(values);
+    renderConditions(values);
+    renderResult(values, isSpam);
+  }
   CONDS.forEach((c) => {
     els.checkboxes[c].addEventListener("change", update);
   });
