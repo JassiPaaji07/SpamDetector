@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="hero-inner">
@@ -19,9 +17,7 @@
   </div>
   <div class="hero-glow" aria-hidden="true"></div>
 </section>
-  
 <main>
-
 <!-- ================= FORMULA ================= -->
 <section class="section" id="formula">
   <div class="section-inner">
@@ -31,13 +27,10 @@
       <div class="big-formula">
         <span class="f-token f-s">S</span> <span class="f-op">&harr;</span> (<span class="f-token">U</span> <span class="f-op">&or;</span> <span class="f-token">L</span> <span class="f-op">&or;</span> <span class="f-token">M</span> <span class="f-op">&or;</span> <span class="f-token">P</span>)
       </div>
-      <p class="formula-explain">The email is Spam if and only if at least one of the four conditions is TRUE.</p>
-
       <div class="legend-row">
         <div class="legend-item"><span class="legend-op">&or;</span> OR &mdash; true when at least one operand is true</div>
         <div class="legend-item"><span class="legend-op">&harr;</span> Biconditional &mdash; true when both sides match</div>
       </div>
-
       <div class="code-block">
         <span class="term-comment">// Programming equivalent</span><br>
         const isSpam = U || L || M || P;
@@ -61,8 +54,6 @@
     </div>
   </div>
 </section>
-
-
 <!-- ================= DETECTION SECTION ================= -->
 <section class="section" id="detection">
   <div class="section-inner">
@@ -74,7 +65,6 @@
           <h3>Email Details</h3>
         </div>
       </div>
-
       <p class="preset-label"><span class="spark">&#10022;</span> Try a preset</p>
       <div class="preset-row">
         <button class="preset preset-danger" data-preset="lottery">&#9888; Lottery Prize</button>
@@ -82,9 +72,7 @@
         <button class="preset preset-safe" data-preset="promo">&#10003; Promo Newsletter</button>
         <button class="preset preset-safe" data-preset="colleague">&#10003; Colleague Email</button>
       </div>
-
       <hr class="divider">
-
       <div class="field">
         <label for="senderEmail">Sender Email</label>
         <input type="text" id="senderEmail" placeholder="e.g. unknown-promo@random-domain.xyz">
@@ -104,12 +92,9 @@
         <span class="conditions-count" id="conditionsCount">0 / 4 conditions active</span>
       </div>
     </div>
-
     <h3 class="subsection-title">The Four Conditions</h3>
     <p class="section-sub">Select each condition accordingly to build the Boolean inputs for the formula.</p>
-
     <div class="condition-grid">
-
       <div class="cond-card" data-cond="U">
         <div class="cond-top">
           <span class="cond-symbol">U</span>
@@ -122,7 +107,6 @@
         <p>The sender is unknown or not trusted.</p>
         <span class="cond-status" id="status-U">FALSE</span>
       </div>
-
       <div class="cond-card" data-cond="L">
         <div class="cond-top">
           <span class="cond-symbol">L</span>
@@ -135,7 +119,6 @@
         <p>The email contains suspicious or potentially unsafe links.</p>
         <span class="cond-status" id="status-L">FALSE</span>
       </div>
-
       <div class="cond-card" data-cond="M">
         <div class="cond-top">
           <span class="cond-symbol">M</span>
@@ -148,7 +131,6 @@
         <p>The email contains a potentially harmful attachment.</p>
         <span class="cond-status" id="status-M">FALSE</span>
       </div>
-
       <div class="cond-card" data-cond="P">
         <div class="cond-top">
           <span class="cond-symbol">P</span>
@@ -161,9 +143,7 @@
         <p>The email contains too many promotional keywords.</p>
         <span class="cond-status" id="status-P">FALSE</span>
       </div>
-
     </div>
-
     <!-- LIVE LOGIC TERMINAL -->
     <div class="logic-terminal">
       <div class="terminal-bar">
@@ -186,7 +166,6 @@
         <div class="term-line term-gap">Therefore <span class="term-var">S</span> = <span id="term-final" class="term-val">FALSE</span></div>
       </div>
     </div>
-
     <!-- RESULT CARD -->
     <div class="result-card result-safe" id="resultCard">
       <div class="result-icon" id="resultIcon">&#10003;</div>
@@ -199,8 +178,6 @@
     </div>
   </div>
 </section>
-
-
 <!-- ================= INFERENCE ================= -->
 <section class="section section-alt" id="inference">
   <div class="section-inner">
@@ -214,7 +191,6 @@
         <div class="mp-line"><span class="mp-label">Premise 2</span> (U &or; L &or; M &or; P)</div>
         <div class="mp-line mp-conclusion"><span class="mp-label">Conclusion</span> S</div>
       </div>
-
       <div class="card inference-card spam-example">
         <h4>Example &mdash; SPAM Case</h4>
         <p class="mono-line">U = FALSE, L = FALSE, M = TRUE, P = FALSE</p>
@@ -222,7 +198,6 @@
         <p class="mono-line">Therefore S = <strong>TRUE</strong></p>
         <p class="mp-conclusion-text spam">The email is classified as SPAM.</p>
       </div>
-
       <div class="card inference-card safe-example">
         <h4>Example &mdash; NOT SPAM Case</h4>
         <p class="mono-line">U = FALSE, L = FALSE, M = FALSE, P = FALSE</p>
@@ -234,12 +209,10 @@
   </div>
 </section>
 </main>
-
 <footer class="footer">
   <p><b>PROJECT MADE BY</b></p>
   <p><b>JASKIRAT SINGH KHOKHAR , REGISTRATION NUMBER - 26215019 , COURSE - 1BCA (A)</b></p>
 </footer>
-
 <script src="script.js"></script>
 </body>
 </html>
