@@ -193,17 +193,6 @@
       update();
     });
   });
-
-  /* ---------------------------------------------------
-     MOBILE NAV TOGGLE
-  --------------------------------------------------- */
-  els.navToggle.addEventListener("click", () => {
-    els.navLinks.classList.toggle("open");
-  });
-  els.navLinks.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => els.navLinks.classList.remove("open"));
-  });
-
    
   /* ---------------------------------------------------
      SELF-TEST (console only — verifies required test cases)
