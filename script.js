@@ -117,7 +117,7 @@
       els.resultTitle.textContent = "NOT SPAM";
       els.resultFormula.textContent = "S = FALSE";
       els.resultExplain.textContent =
-        "All four spam conditions are FALSE, therefore the email is not classified as spam under this logical model.";
+        "All four spam conditions are FALSE, therefore the email is NOT SPAM";
       els.resultReasons.innerHTML = "";
     }
   }
