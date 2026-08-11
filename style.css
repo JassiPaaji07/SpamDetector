@@ -536,17 +536,6 @@ ul{ list-style:none; margin:0; padding:0; }
 .spam-example{ border-top:3px solid var(--spam-red); }
 .safe-example{ border-top:3px solid var(--safe-green); }
 
-/* =========================================================
-   MISC
-========================================================= */
-.disclaimer{
-  margin-top: 18px;
-  font-size: 13.5px;
-  color: var(--ink-400);
-  font-style: italic;
-}
-.conclusion-card p{ font-size: 15.5px; line-height:1.7; }
-
 .footer{
   background: var(--navy-950);
   color: #7c88a3;
