@@ -28,15 +28,6 @@
       M: document.querySelector('.cond-card[data-cond="M"]'),
       P: document.querySelector('.cond-card[data-cond="P"]')
     },
-    termVals: {
-      U: document.getElementById("val-U"),
-      L: document.getElementById("val-L"),
-      M: document.getElementById("val-M"),
-      P: document.getElementById("val-P")
-    },
-    termEval: document.getElementById("term-eval"),
-    termResult: document.getElementById("term-result"),
-    termFinal: document.getElementById("term-final"),
 
     resultCard: document.getElementById("resultCard"),
     resultIcon: document.getElementById("resultIcon"),
