@@ -103,7 +103,7 @@
       els.resultTitle.textContent = "SPAM EMAIL DETECTED";
       els.resultFormula.textContent = "S = TRUE";
       els.resultExplain.textContent =
-        "At least one spam condition is TRUE, so under S ↔ (U ∨ L ∨ M ∨ P) the email is classified as spam.";
+        "At least one SPAM condition is TRUE, so the email is classified as SPAM.";
 
       const trueConds = CONDS.filter((c) => values[c]);
       els.resultReasons.innerHTML = "";
