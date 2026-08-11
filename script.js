@@ -1,15 +1,7 @@
-/* =========================================================
-   SPAM EMAIL DETECTION — PROPOSITIONAL LOGIC ENGINE
-   Formula:  S ↔ (U ∨ L ∨ M ∨ P)
-   Core rule: isSpam = U || L || M || P
-   (OR logic only — do not change to AND)
-========================================================= */
 
 (function () {
   "use strict";
-
   const CONDS = ["U", "L", "M", "P"];
-
   const LABELS = {
     U: "Unknown Sender",
     L: "Suspicious Links",
@@ -58,7 +50,6 @@
     senderEmail: document.getElementById("senderEmail"),
     emailSubject: document.getElementById("emailSubject"),
     emailContent: document.getElementById("emailContent"),
-
     analyzeBtn: document.getElementById("analyzeBtn"),
     resetBtn: document.getElementById("resetBtn"),
 
@@ -66,10 +57,6 @@
     navLinks: document.getElementById("navLinks")
   };
 
-  /* ---------------------------------------------------
-     CORE LOGIC: OR ONLY
-     S ↔ (U ∨ L ∨ M ∨ P)
-  --------------------------------------------------- */
   function evaluateSpam(values) {
     // REQUIRED: OR logic — do not replace with AND
     const isSpam = values.U || values.L || values.M || values.P;
@@ -88,9 +75,6 @@
     return v ? "TRUE" : "FALSE";
   }
 
-  /* ---------------------------------------------------
-     RENDER: condition cards + status badges
-  --------------------------------------------------- */
   function renderConditions(values) {
     let activeCount = 0;
     CONDS.forEach((c) => {
@@ -103,9 +87,6 @@
     els.conditionsCount.textContent = `${activeCount} / 4 conditions active`;
   }
 
-  /* ---------------------------------------------------
-     RENDER: live logic terminal
-  --------------------------------------------------- */
   function renderTerminal(values, isSpam) {
     const evalStr = CONDS.map((c) => bool(values[c])).join(" ∨ ");
     els.termEval.textContent = evalStr;
@@ -113,9 +94,6 @@
     els.termFinal.textContent = bool(isSpam);
   }
 
-  /* ---------------------------------------------------
-     RENDER: result card
-  --------------------------------------------------- */
   function renderResult(values, isSpam) {
     els.resultCard.classList.toggle("result-spam", isSpam);
     els.resultCard.classList.toggle("result-safe", !isSpam);
@@ -152,24 +130,15 @@
     renderResult(values, isSpam);
   }
 
-  /* ---------------------------------------------------
-     EVENTS: condition toggles
-  --------------------------------------------------- */
   CONDS.forEach((c) => {
     els.checkboxes[c].addEventListener("change", update);
   });
-
-  /* ---------------------------------------------------
-     ANALYZE BUTTON — re-runs evaluation using current toggles
-  --------------------------------------------------- */
+   
   els.analyzeBtn.addEventListener("click", () => {
     update();
     els.resultCard.scrollIntoView({ behavior: "smooth", block: "center" });
   });
 
-  /* ---------------------------------------------------
-     RESET BUTTON
-  --------------------------------------------------- */
   els.resetBtn.addEventListener("click", () => {
     els.senderEmail.value = "";
     els.emailSubject.value = "";
@@ -180,9 +149,6 @@
     update();
   });
 
-  /* ---------------------------------------------------
-     PRESETS
-  --------------------------------------------------- */
   const PRESETS = {
     lottery: {
       sender: "unknown-promo@random-domain.xyz",
@@ -229,47 +195,6 @@
   });
 
   /* ---------------------------------------------------
-     TRUTH TABLE — full 16 rows
-  --------------------------------------------------- */
-  function buildTruthTable() {
-    const tbody = document.getElementById("truthTableBody");
-    tbody.innerHTML = "";
-
-    for (let i = 0; i < 16; i++) {
-      // bit order: U L M P  (MSB -> LSB)
-      const U = !!(i & 8);
-      const L = !!(i & 4);
-      const M = !!(i & 2);
-      const P = !!(i & 1);
-      const or = U || L || M || P;
-      const s = or; // S ↔ (U∨L∨M∨P)
-
-      const tr = document.createElement("tr");
-      if (!or) tr.classList.add("tt-highlight");
-
-      const cells = [U, L, M, P];
-      cells.forEach((v) => {
-        const td = document.createElement("td");
-        td.className = "tt-bool " + (v ? "tt-true" : "tt-false");
-        td.textContent = bool(v);
-        tr.appendChild(td);
-      });
-
-      const orTd = document.createElement("td");
-      orTd.className = "tt-bool " + (or ? "tt-true" : "tt-false");
-      orTd.textContent = bool(or);
-      tr.appendChild(orTd);
-
-      const sTd = document.createElement("td");
-      sTd.className = "tt-bool tt-s " + (s ? "tt-spam-row" : "");
-      sTd.textContent = bool(s);
-      tr.appendChild(sTd);
-
-      tbody.appendChild(tr);
-    }
-  }
-
-  /* ---------------------------------------------------
      MOBILE NAV TOGGLE
   --------------------------------------------------- */
   els.navToggle.addEventListener("click", () => {
@@ -279,12 +204,7 @@
     a.addEventListener("click", () => els.navLinks.classList.remove("open"));
   });
 
-  /* ---------------------------------------------------
-     INIT
-  --------------------------------------------------- */
-  buildTruthTable();
-  update();
-
+   
   /* ---------------------------------------------------
      SELF-TEST (console only — verifies required test cases)
   --------------------------------------------------- */
