@@ -73,22 +73,12 @@
       if (active) activeCount++;
       els.statusBadges[c].textContent = bool(active);
       els.condCards[c].classList.toggle("active", active);
-      els.termVals[c].textContent = bool(active);
     });
     els.conditionsCount.textContent = `${activeCount} / 4 conditions active`;
   }
-
-  function renderTerminal(values, isSpam) {
-    const evalStr = CONDS.map((c) => bool(values[c])).join(" ∨ ");
-    els.termEval.textContent = evalStr;
-    els.termResult.textContent = bool(isSpam);
-    els.termFinal.textContent = bool(isSpam);
-  }
-
   function renderResult(values, isSpam) {
     els.resultCard.classList.toggle("result-spam", isSpam);
     els.resultCard.classList.toggle("result-safe", !isSpam);
-
     if (isSpam) {
       els.resultIcon.innerHTML = "&#9888;";
       els.resultTitle.textContent = "SPAM EMAIL DETECTED";
@@ -112,15 +102,6 @@
       els.resultReasons.innerHTML = "";
     }
   }
-
-  function update() {
-    const values = getValues();
-    const isSpam = evaluateSpam(values);
-    renderConditions(values);
-    renderTerminal(values, isSpam);
-    renderResult(values, isSpam);
-  }
-
   CONDS.forEach((c) => {
     els.checkboxes[c].addEventListener("change", update);
   });
