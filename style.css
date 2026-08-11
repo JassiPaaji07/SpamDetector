@@ -57,67 +57,6 @@ ul{ list-style:none; margin:0; padding:0; }
   *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
 
-/* =========================================================
-   NAVBAR
-========================================================= */
-.navbar{
-  position: sticky;
-  top:0;
-  z-index: 100;
-  background: linear-gradient(180deg, var(--navy-950), var(--navy-900));
-  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
-}
-.navbar-inner{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 24px;
-  display:flex;
-  align-items:center;
-  gap: 24px;
-}
-.brand{ display:flex; align-items:center; gap:12px; margin-right:auto; }
-.brand-text{ display:flex; flex-direction:column; line-height:1.2; }
-.brand-title{ font-family: var(--font-display); font-weight:700; color:#fff; font-size:16px; }
-.brand-subtitle{ font-size:11px; color: #93a3c4; letter-spacing:.02em; }
-
-.nav-links{ display:flex; gap: 4px; flex-wrap:wrap; }
-.nav-links a{
-  color:#c3ceea;
-  font-size: 13.5px;
-  font-weight:500;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: background .18s ease, color .18s ease;
-  white-space:nowrap;
-}
-.nav-links a:hover{ background: rgba(34,211,238,0.12); color: var(--cyan-400); }
-
-.nav-toggle{
-  display:none;
-  flex-direction:column;
-  gap:4px;
-  background:none;
-  border:none;
-  cursor:pointer;
-  padding:6px;
-}
-.nav-toggle span{ width:22px; height:2px; background:#dbe4f7; border-radius:2px; }
-
-@media (max-width: 900px){
-  .nav-toggle{ display:flex; }
-  .nav-links{
-    position:absolute;
-    top:100%; left:0; right:0;
-    background: var(--navy-900);
-    flex-direction:column;
-    padding: 8px 16px 16px;
-    max-height:0;
-    overflow:hidden;
-    transition: max-height .25s ease;
-  }
-  .nav-links.open{ max-height: 400px; }
-  .nav-links a{ padding:10px 8px; }
-}
 
 /* =========================================================
    HERO
@@ -510,16 +449,6 @@ ul{ list-style:none; margin:0; padding:0; }
   color: var(--cyan-500);
 }
 
-.truth-table td, .truth-table th{ text-align:center; }
-.truth-table td:nth-child(1), .truth-table th:nth-child(1),
-.truth-table td:first-child{ text-align:center; }
-.tt-bool{ font-family: var(--font-mono); font-weight:700; }
-.tt-true{ color: var(--spam-red); }
-.tt-false{ color: var(--ink-400); }
-tr.tt-highlight td{ background: var(--safe-green-bg); }
-tr.tt-highlight .tt-s{ color: var(--safe-green); font-weight:700; }
-.tt-s.tt-spam-row{ color: var(--spam-red); font-weight:700; }
-
 /* =========================================================
    FORMULA SECTION
 ========================================================= */
@@ -558,26 +487,6 @@ tr.tt-highlight .tt-s{ color: var(--safe-green); font-weight:700; }
   margin: 0 auto;
 }
 .code-block .term-comment{ display:block; margin-bottom:6px; }
-
-/* =========================================================
-   SIMPLIFICATION
-========================================================= */
-.flow-card{ padding: 28px 32px; margin-top:18px; }
-.flow-card h4{ margin:0 0 18px; font-family: var(--font-display); font-size:17px; }
-.flow-steps{ display:flex; flex-direction:column; gap:10px; }
-.flow-step{
-  font-family: var(--font-mono);
-  font-size: 14px;
-  display:flex; align-items:center; gap:10px;
-  padding: 10px 14px;
-  background: var(--bg-alt);
-  border-radius: var(--radius-sm);
-}
-.flow-if{ color: var(--navy-800); font-weight:700; min-width: 68px; }
-.flow-arrow{ color: var(--ink-400); }
-.flow-out{ margin-left:auto; font-weight:700; padding: 3px 12px; border-radius:999px; font-size:12.5px; }
-.flow-out.spam{ background: var(--spam-red-bg); color: var(--spam-red); }
-.flow-out.safe{ background: var(--safe-green-bg); color: var(--safe-green); }
 
 /* =========================================================
    INFERENCE
@@ -644,15 +553,4 @@ tr.tt-highlight .tt-s{ color: var(--safe-green); font-weight:700; }
   text-align:center;
   font-size: 12.5px;
   padding: 28px 24px;
-}
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-@media (max-width: 640px){
-  .section{ padding: 56px 18px; }
-  .hero{ padding: 64px 18px 72px; }
-  .analyze-card{ padding: 22px 20px; }
-  .result-card{ flex-direction:column; align-items:flex-start; }
-  .conditions-count{ margin-left:0; }
 }
